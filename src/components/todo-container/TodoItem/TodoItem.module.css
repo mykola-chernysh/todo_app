@@ -1,0 +1,90 @@
+.Todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.Todo > label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    display: none;
+}
+
+.new_checkbox {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+
+    background-color: #5D7A8C;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.new_checkbox:before {
+    content: '\2713';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+
+    color: white;
+
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.checkbox:checked + .new_checkbox:before {
+    background-color: #09a209;
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
+.title {
+    width: 350px;
+    height: 42px;
+
+    padding: 10px;
+
+    font-size: 18px;
+    color: #F2F2F2;
+    border-radius: 10px;
+    background-color: #5D7A8C;
+    outline: none;
+    resize: none;
+    scrollbar-width: none;
+}
+
+.title_competed {
+    background-color: #09a209;
+}
+
+.todo_btn {
+    display: flex;
+    gap: 5px;
+}
+
+.edit,
+.delete {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.delete {
+    background: url('../../../images/delete.png') center/cover no-repeat;
+}
+
+.edit {
+    background: url('../../../images/edit.png') center/cover no-repeat;
+}
