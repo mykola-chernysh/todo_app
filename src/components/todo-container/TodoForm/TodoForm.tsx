@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
 
 import css from './TodoForm.module.css';
@@ -11,22 +11,20 @@ const TodoForm = () => {
     const {todo} = useAppSelector(state => state.todo);
     const dispatch = useAppDispatch();
 
-    const addNewTodo:SubmitHandler<ITodo> = (todo1) => {
-       if (todo1.title) {
-           dispatch(todoActions.add(todo1))
-       }
+    const addNewTodo: SubmitHandler<ITodo> = (todo1) => {
+        if (todo1.title) {
+            dispatch(todoActions.add(todo1));
+        }
         reset();
     }
 
-    useEffect(() => {
-        if (todo) {
-            setValue('title', todo.title);
-        }
-    }, [todo, setValue]);
+    if (todo) {
+        setValue('title', todo.title);
+    }
 
     const editTodo: SubmitHandler<ITodo> = (todo1) => {
         if (todo) {
-            dispatch(todoActions.edit(todo1))
+            dispatch(todoActions.edit(todo1));
         }
         reset();
     }
